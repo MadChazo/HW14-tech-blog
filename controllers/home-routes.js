@@ -38,6 +38,11 @@ router.get("/dashboard/:user", async (req, res) => {
   }
 });
 
+// Sign up route
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
 // Login route
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {

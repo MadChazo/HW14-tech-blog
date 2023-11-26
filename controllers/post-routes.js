@@ -12,7 +12,11 @@ router.get("/:id", async (req, res) => {
       ],
     });
     const post = dbPostData.get({ plain: true });
-    res.render("post", { post, loggedIn: req.session.loggedIn, user: req.session.user });
+    res.render("post", {
+      post,
+      loggedIn: req.session.loggedIn,
+      user: req.session.user,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
