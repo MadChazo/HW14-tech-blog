@@ -1,0 +1,43 @@
+:root {
+  --dark: #35302b;
+  --green: rgb(146, 200, 173);
+}
+
+* {
+  background-color: var(--dark);
+  color: var(--green);
+  box-sizing: border-box;
+  margin: 0;
+}
+
+h1 {
+  margin: 25px;
+}
+
+nav {
+  background-color: var(--green);
+  color: var(--dark);
+}
+
+.card {
+  background-color: var(--green);
+  color: var(--dark);
+  margin: 20px;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+  background-color: var(--green);
+  color: var(--dark);
+}
+
+.post-title,
+.post-content,
+.post-meta,
+.comment-content,
+.comment-meta {
+  background-color: var(--green);
+  color: var(--dark);
+}

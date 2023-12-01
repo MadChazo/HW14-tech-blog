@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, Comment } = require("../models");
+const { Post, Comment, User } = require("../models");
 
 // Get one post
 router.get("/:id", async (req, res) => {
@@ -8,12 +8,16 @@ router.get("/:id", async (req, res) => {
       include: [
         {
           model: Comment,
+          include: [{ model: User }],
         },
       ],
     });
     const post = dbPostData.get({ plain: true });
+    const dbPostUser = await User.findOne({ where: { id: post.user_id } });
+    const postUser = dbPostUser.get({ plain: true });
     res.render("post", {
       post,
+      postUser,
       loggedIn: req.session.loggedIn,
       user: req.session.user,
     });

@@ -30,7 +30,7 @@ router.get("/dashboard/:user", async (req, res) => {
     const dbBlogData = await Post.findAll({
       where: { user_id: req.params.user },
     });
-    const posts = dbBlogData.get({ plain: true });
+    const posts = dbBlogData.map((post) => post.get({ plain: true }));
     res.render("dashboard", { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
